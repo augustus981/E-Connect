@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "Server.serlvet.context-path",
+      "type": "java.lang.String",
+      "description": "Description for Server.serlvet.context-path."
+  }
+] }

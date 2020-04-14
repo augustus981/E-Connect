@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width, initial-scale=1" name="viewport"> 
+<title>DEE Auth Server</title>
+<link th:href=@{/css/style.css} rel='stylesheet'
+	type='text/css' /> 
+</head>
+<header class="O-Header">
+	<div class="O-Header__logoRow">
+	    <div class="O-Header__wrapper">
+	        <a href="#" class="O-Header__logo"><img th:src="@{/images/logo.svg}" />
+	        </a>
+	        <div class="O-Header__title">
+				<h1>Phase Me In</h1>
+	        </div>
+	    </div>
+	</div>
+</header>
+<body onload="document.f.username.focus();">
+	<div id="login">
+		<div id="login-form">
+			<form class="login-form__container" th:action="@{/login}" name="f" method="post">
+				<h1>Welcome</h1>
+				<div class="login-form__error" th:if="${param.error}">Invalid username and password.</div>
+				<p class="field-input">
+					<label for="username">User ID:</label>
+					<input class="ipt-field" type="text" id="username" name="username" required/>
+				</p>
+				<p class="field-input">
+					<label for="password">Password:</label>
+					<input class="ipt-field" type="password" id="password" name="password" required/>
+				</p>
+				<p class="btn-wrapper">
+					<input class="btn-submit" name="submit" type="submit" value="Login" />
+				</p>
+			</form>	
+		</div>
+	</div>
+</body>
+</html>

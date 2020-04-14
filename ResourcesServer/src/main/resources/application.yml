@@ -1,0 +1,39 @@
+server:
+  port: 7003
+  servlet:
+    context-path: /e-resrc
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/e_data
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        enable_lazy_load_no_trans: true
+security:
+  oauth2:
+    client:
+      client-id: app
+      client-secret: password
+    resource:
+      user-info-uri: http://localhost:7003/e-resrc/api/user
+      token-info-uri: http://localhost:7003/e-resrc/oauth/check_token
+      prefer-token-info: false
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh+NmoQoiFsU/UQjQmnGo
+          DFFqL/1jn8bndKxSTj8HpXEyarqa8+yY4Q/iFZ/twvwp7whiPRiCU2lEW/JOUaQC
+          sgOk+azoOVemdnG97k4q9j/YzFc5cp9KIeL4x0cchkJEI5p2FFuNw16Ghlk4M+eo
+          K+rnVII15QJ6DdO4KmvC6pM4PAgfbkaPkb9tGMoCr6SbSBF1EQWNtZTQYHVOB2PH
+          /vXdx3SZ8PhE0Zhb5YrqGQ3wY4V/m7ZA/Jjf0d9Cd8ysFHiVqEVdhThYZP8dE3Ru
+          36f1dm9DTWTKEa4CsPQrcQ/a/wgy1NGAg615kalaIfNLQcwsNjG2GTJ1UH7dUFKk
+          jwIDAQAB
+          -----END PUBLIC KEY-----
